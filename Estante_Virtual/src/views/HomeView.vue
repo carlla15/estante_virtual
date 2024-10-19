@@ -1,64 +1,46 @@
 <script setup>
 import BaseLayout from '@/components/BaseLayout.vue';
+import HeaderTemplate from '@/components/HeaderTemplate.vue';
+import BookCard from '@/components/BookCard.vue';
 </script>
 
 <template>
-  <header>
-    <h1>Gerencie seus livros !</h1>
-    <p>
-      A estante virtual é o melhor lugar para organizar, gerenciar e compartilhar suas leituras.
-      Faça seu login ou cadastre-se gratuitamente para começar agora mesmo a organizar seus livros.
-    </p>
-
-    <a class="btn btn-primary btn-entrar" href="#" role="button">Entre</a>
-    <a class="btn btn-primary btn-casdastrar" href="#" role="button">Cadastre-se >></a>
-
-  </header>
-
+  <HeaderTemplate />
   <BaseLayout>
-    <h2>Destaques</h2>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias eaque ut quidem amet ipsum fugit veritatis facere
-      exercitationem dolorem dolor. Cum consequuntur ducimus nihil perspiciatis velit praesentium adipisci
-      exercitationem voluptas.
-    </p>
+
+    <div class="titulo-pratileira">
+      <i class="fa-solid fa-medal"></i>
+      <span>Destaque</span>
+    </div>
+    <section class="pratileira">
+      <BookCard />
+      <BookCard />
+      <BookCard />
+    </section>
+
+    <div class="titulo-pratileira">
+      <i class="fa-regular fa-font-awesome"></i>
+      <span> Descubra outros livros</span>
+    </div>
+    <section class="pratileira">
+      <BookCard />
+      <BookCard />
+    </section>
+
   </BaseLayout>
 </template>
 
 <style scoped>
-header {
-  background: var(--color_black);
-  padding: 90px;
+.titulo-pratileira {
+  margin: 10px;
 
-  & h1 {
-    color: var(--color_white);
+  & i {
+    margin: 10px;
+    font-size: 2em;
   }
 
-  & p {
-    color: var(--color_2);
+  & span {
+    font-size: large;
   }
-
-  & .btn-primary {
-    border-color: var(--color_white);
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-  & .btn-entrar {
-    background-color: var(--color_1);
-  }
-
-  & .btn-casdastrar {
-    background-color: var(--color_2);
-  }
-
-  & .btn-entrar:hover {
-    background-color: var(--color_1_hover);
-  }
-
-  & .btn-casdastrar:hover {
-    background-color: var(--color_2_hover);
-  }
-
 }
 </style>

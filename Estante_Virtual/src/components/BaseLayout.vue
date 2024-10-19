@@ -63,6 +63,12 @@ export default {
   & a {
     color: var(--color_white);
     margin-right: 50px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  & a:hover {
+    background-color: var(--color_1_hover);
   }
 }
 
@@ -81,7 +87,8 @@ footer {
     color: cornflowerblue;
   }
 
-  & p, h2 {
+  & p,
+  h2 {
     margin: 20px;
   }
 }
