@@ -8,6 +8,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import './assets/main.css'
 // Importar o JavaScript do Bootstrap e o Popper.js
 import 'bootstrap/dist/js/bootstrap.bundle';
+// Importar os icones do fontawesome
+import '@fortawesome/fontawesome-free/css/all.css';
+
 
 const app = createApp(App)
 
