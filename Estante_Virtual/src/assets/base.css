@@ -1,0 +1,10 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --color_1: #920D0D;
+  --color_white: #ffff;
+  --color_black: #060606;
+}
