@@ -4,10 +4,19 @@ import BaseLayout from '@/components/BaseLayout.vue';
 
 <template>
   <header>
-    <h1>Gerencie seus livros</h1>
+    <h1>Gerencie seus livros !</h1>
+    <p>
+      A estante virtual é o melhor lugar para organizar, gerenciar e compartilhar suas leituras.
+      Faça seu login ou cadastre-se gratuitamente para começar agora mesmo a organizar seus livros.
+    </p>
+
+    <a class="btn btn-primary btn-entrar" href="#" role="button">Entre</a>
+    <a class="btn btn-primary btn-casdastrar" href="#" role="button">Cadastre-se >></a>
+
   </header>
+
   <BaseLayout>
-    <h2>Teste Home</h2>
+    <h2>Destaques</h2>
     <p>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias eaque ut quidem amet ipsum fugit veritatis facere
       exercitationem dolorem dolor. Cum consequuntur ducimus nihil perspiciatis velit praesentium adipisci
@@ -18,8 +27,38 @@ import BaseLayout from '@/components/BaseLayout.vue';
 
 <style scoped>
 header {
-  color: var(--color_white);
   background: var(--color_black);
   padding: 90px;
+
+  & h1 {
+    color: var(--color_white);
+  }
+
+  & p {
+    color: var(--color_2);
+  }
+
+  & .btn-primary {
+    border-color: var(--color_white);
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  & .btn-entrar {
+    background-color: var(--color_1);
+  }
+
+  & .btn-casdastrar {
+    background-color: var(--color_2);
+  }
+
+  & .btn-entrar:hover {
+    background-color: var(--color_1_hover);
+  }
+
+  & .btn-casdastrar:hover {
+    background-color: var(--color_2_hover);
+  }
+
 }
 </style>
