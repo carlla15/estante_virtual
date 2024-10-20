@@ -43,9 +43,11 @@ export default {
         position: relative;
         margin: 20px;
         border: 1px solid red;
+        border-radius: 8px;
+        overflow: hidden;
 
         & .titulo {
-            font-size: 1.5em;
+            font-size: 1.2em;
             position: absolute;
             top: 50%;
             left: 50%;
