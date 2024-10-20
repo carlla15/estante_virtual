@@ -14,8 +14,6 @@ import BookCard from '@/components/BookCard.vue';
     </div>
     <section class="pratileira">
       <BookCard />
-      <BookCard />
-      <BookCard />
     </section>
 
     <div class="titulo-pratileira">
@@ -23,7 +21,6 @@ import BookCard from '@/components/BookCard.vue';
       <span> Descubra outros livros</span>
     </div>
     <section class="pratileira">
-      <BookCard />
       <BookCard />
     </section>
 
@@ -36,7 +33,7 @@ import BookCard from '@/components/BookCard.vue';
 
   & i {
     margin: 10px;
-    font-size: 2em;
+    font-size: 1.5em;
   }
 
   & span {
