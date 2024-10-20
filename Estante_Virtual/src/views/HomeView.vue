@@ -10,7 +10,7 @@ import BookCard from '@/components/BookCard.vue';
 
     <div class="titulo-pratileira">
       <i class="fa-solid fa-medal"></i>
-      <span>Destaque</span>
+      <span>Destaques</span>
     </div>
     <section class="pratileira">
       <BookCard />
@@ -29,7 +29,8 @@ import BookCard from '@/components/BookCard.vue';
 
 <style scoped>
 .titulo-pratileira {
-  margin: 10px;
+  margin: 20px;
+  color: var(--color_1) ;
 
   & i {
     margin: 10px;
@@ -37,7 +38,9 @@ import BookCard from '@/components/BookCard.vue';
   }
 
   & span {
-    font-size: large;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 1.5em;
   }
 }
 </style>

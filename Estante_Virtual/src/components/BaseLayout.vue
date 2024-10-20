@@ -59,6 +59,7 @@ export default {
 .custom-nav {
   background-color: var(--color_1);
   font-weight: bold;
+  padding: 10px;
 
   & a {
     color: var(--color_white);
