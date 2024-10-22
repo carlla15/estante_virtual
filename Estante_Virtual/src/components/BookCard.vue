@@ -69,7 +69,6 @@ export default {
 }
 
 .no-books-found {
-  margin: 20px;
-
+  margin: 30px;
 }
 </style>

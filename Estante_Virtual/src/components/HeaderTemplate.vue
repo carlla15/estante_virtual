@@ -6,7 +6,7 @@
             Faça seu login ou cadastre-se gratuitamente para começar agora mesmo a organizar seus livros.
         </p>
 
-        <a class="btn btn-primary btn-entrar" href="#" role="button">Entre</a>
+        <a class="btn btn-primary btn-entrar" href="#" role="button">Entre !</a>
         <a class="btn btn-primary btn-casdastrar" href="#" role="button">Cadastre-se >></a>
     </header>
 </template>

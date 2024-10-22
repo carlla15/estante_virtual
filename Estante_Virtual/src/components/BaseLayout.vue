@@ -1,7 +1,10 @@
 <template>
   <nav class="navbar navbar-expand-lg custom-nav">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Estante Virtual</a>
+      <a class="navbar-brand" href="#">
+        <i class="fa-solid fa-book-bookmark"></i>
+        <span>Pratileira Inteligente</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -32,7 +35,10 @@
   </main>
 
   <footer>
-    <h2>Estante Virtual</h2>
+
+    <h3>
+      <i class="fa-solid fa-book-bookmark"></i>Pratileira Inteligente
+    </h3>
     <a href="#" target="_blank">
       <i class="fa-brands fa-facebook"></i>
     </a>
@@ -45,7 +51,7 @@
     <a href="#" target="_blank">
       <i class="fa-brands fa-linkedin"></i>
     </a>
-    <p>&copy; 2024 Estante Virtual. Todos os direitos reservados.</p>
+    <p>&copy; 2024 Pratileira Inteligente. Todos os direitos reservados.</p>
   </footer>
 </template>
 
@@ -60,6 +66,11 @@ export default {
   background-color: var(--color_1);
   font-weight: bold;
   padding: 10px;
+
+  & i {
+    margin-right: 10px;
+    font-size: 1.5em;
+  }
 
   & a {
     color: var(--color_white);
@@ -79,18 +90,25 @@ footer {
   color: var(--color_white);
   background-color: var(--color_black);
 
+  & h3 {
+    margin: 10px;
+
+    & i {
+      margin-right: 10px;
+    }
+  }
+
+  & p {
+    margin: 20px;
+  }
+
   & a {
     color: var(--color_white);
-    padding: 10px;
+    margin: 10px;
   }
 
   & a:hover {
     color: cornflowerblue;
-  }
-
-  & p,
-  h2 {
-    margin: 20px;
   }
 }
 </style>
