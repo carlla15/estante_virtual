@@ -21,7 +21,7 @@
             <a class="nav-link" href="#">Minha estante</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Entre</a>
+            <router-link class="nav-link" to="/authentication">Entre</router-link>
           </li>
         </ul>
       </div>
