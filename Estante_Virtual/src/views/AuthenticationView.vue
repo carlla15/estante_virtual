@@ -1,6 +1,6 @@
 <template>
     <BaseLayout>
-        <section class="vh-100">
+        <section>
             <div class="container-fluid h-custom">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-md-9 col-lg-6 col-xl-5">
@@ -9,29 +9,6 @@
                     </div>
                     <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                         <form>
-                            <div
-                                class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                                <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-primary btn-floating mx-1">
-                                    <i class="fab fa-facebook-f"></i>
-                                </button>
-
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-primary btn-floating mx-1">
-                                    <i class="fab fa-twitter"></i>
-                                </button>
-
-                                <button type="button" data-mdb-button-init data-mdb-ripple-init
-                                    class="btn btn-primary btn-floating mx-1">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </button>
-                            </div>
-
-                            <div class="divider d-flex align-items-center my-4">
-                                <p class="text-center fw-bold mx-3 mb-0">Or</p>
-                            </div>
-
                             <!-- Email input -->
                             <div data-mdb-input-init class="form-outline mb-4">
                                 <input type="email" id="form3Example3" class="form-control form-control-lg"
@@ -69,31 +46,6 @@
                     </div>
                 </div>
             </div>
-            <div
-                class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
-                <!-- Copyright -->
-                <div class="text-white mb-3 mb-md-0">
-                    Copyright © 2020. All rights reserved.
-                </div>
-                <!-- Copyright -->
-
-                <!-- Right -->
-                <div>
-                    <a href="#!" class="text-white me-4">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#!" class="text-white me-4">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#!" class="text-white me-4">
-                        <i class="fab fa-google"></i>
-                    </a>
-                    <a href="#!" class="text-white">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-                <!-- Right -->
-            </div>
         </section>
     </BaseLayout>
 </template>
@@ -109,6 +61,7 @@ export default {
 </script>
 
 <style scoped>
+
 .divider:after,
 .divider:before {
     content: "";
@@ -118,12 +71,12 @@ export default {
 }
 
 .h-custom {
-    height: calc(100% - 73px);
-}
-
-@media (max-width: 450px) {
-    .h-custom {
-        height: 100%;
-    }
+    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.644);
+    width: 90%;
+    border-radius: 20px;
+    padding: 80px;
+    background-color: var(--color_4);
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 </style>

@@ -38,6 +38,7 @@ export default {
     border: 1px solid red;
     border-radius: 8px;
     overflow: hidden;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.74);
 
     & .title {
       font-size: 1.2em;
