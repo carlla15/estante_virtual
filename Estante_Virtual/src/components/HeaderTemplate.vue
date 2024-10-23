@@ -14,7 +14,7 @@
 <style scoped>
 header {
     background: var(--color_black);
-    padding: 90px;
+    padding: 40px;
 
     & h1 {
         color: var(--color_white);

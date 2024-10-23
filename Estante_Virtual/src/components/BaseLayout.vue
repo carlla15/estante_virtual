@@ -1,10 +1,10 @@
 <template>
   <nav class="navbar navbar-expand-lg custom-nav">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <router-link class="nav-link navbar-brand" to="/">
         <i class="fa-solid fa-book-bookmark"></i>
         <span>Pratileira Inteligente</span>
-      </a>
+      </router-link>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
