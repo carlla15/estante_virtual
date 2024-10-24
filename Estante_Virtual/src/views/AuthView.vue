@@ -12,11 +12,8 @@
                                 </div>
                                 <div class="col-md-6 col-lg-7 d-flex align-items-center">
                                     <div class="card-body p-4 p-lg-5 text-black">
-                                        <!-- Transição com slide -->
-                                        <transition name="slide-fade">
-                                            <AuthLogin v-if="isLogin" @switchToRegister="isLogin = false" key="login" />
-                                            <AuthRegister v-else @switchToLogin="isLogin = true" key="register" />
-                                        </transition>
+                                        <AuthLogin v-show="isLogin" @switchToRegister="isLogin = false" key="login" />
+                                        <AuthRegister v-show="!isLogin" @switchToLogin="isLogin = true" key="register" />
                                     </div>
                                 </div>
                             </div>
@@ -50,16 +47,5 @@ export default {
 <style scoped>
 section {
     background-color: var(--color_4);
-}
-
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-    transition: all 0.5s ease;
-}
-
-.slide-fade-enter,
-.slide-fade-leave-to {
-    transform: translateX(10%);
-    opacity: 0;
 }
 </style>
