@@ -12,16 +12,25 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <router-link class="nav-link" to="/">Inicio</router-link>
+            <router-link class="nav-link" to="/">
+              <i class="fa-solid fa-house-chimney"></i>Inicio
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Buscar</a>
+            <router-link class="nav-link" to="/">
+              <i class="fa-solid fa-magnifying-glass"></i>Buscar
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Minha estante</a>
+            <router-link class="nav-link" to="/">
+              <i class="fa-regular fa-bookmark"></i>Minha estante
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/authentication">Entre</router-link>
+            <router-link class="nav-link" to="/authentication">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              Entre
+            </router-link>
           </li>
         </ul>
       </div>

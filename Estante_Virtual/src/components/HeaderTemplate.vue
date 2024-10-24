@@ -6,8 +6,13 @@
             Faça seu login ou cadastre-se gratuitamente para começar agora mesmo a organizar seus livros.
         </p>
 
-        <a class="btn btn-primary btn-entrar" href="#" role="button">Entre !</a>
-        <a class="btn btn-primary btn-casdastrar" href="#" role="button">Cadastre-se >></a>
+        <router-link to="/authentication" class="btn btn-primary btn-entrar" role="button">
+            Entre!
+        </router-link>
+
+        <router-link to="/cadastro" class="btn btn-primary btn-cadastrar" role="button">
+            Cadastre-se >>
+        </router-link>
     </header>
 </template>
 
@@ -34,7 +39,7 @@ header {
         background-color: var(--color_1);
     }
 
-    & .btn-casdastrar {
+    & .btn-cadastrar {
         background-color: var(--color_2);
     }
 
@@ -42,7 +47,7 @@ header {
         background-color: var(--color_1_hover);
     }
 
-    & .btn-casdastrar:hover {
+    & .btn-cadastrar:hover {
         background-color: var(--color_2_hover);
     }
 }
