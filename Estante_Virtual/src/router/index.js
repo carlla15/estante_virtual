@@ -17,7 +17,7 @@ const router = createRouter({
     {
       path: '/authentication',
       name: 'authentication',
-      component: () => import('../views/AuthenticationView.vue') // Lazy-loading
+      component: () => import('../views/AuthView.vue')
     }
   ]
 })
