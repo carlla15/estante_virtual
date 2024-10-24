@@ -68,6 +68,8 @@ const fetchBooks = async (query, maxResults = 100) => {
     return books;
 };
 
+//teste
+
 // Função para adicionar o livro ao Firestore
 async function addBookToFirestore(book) {
     try {
