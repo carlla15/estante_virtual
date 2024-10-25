@@ -57,7 +57,7 @@ export default {
 
 <style scoped>
 .shelf-title {
-  margin: 20px;
+  padding: 20px;
   color: var(--color_1);
 
   & i {

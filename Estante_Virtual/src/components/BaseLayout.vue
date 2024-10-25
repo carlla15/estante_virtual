@@ -93,6 +93,10 @@ export default {
   }
 }
 
+main {
+  background-color: var(--color_4);
+}
+
 footer {
   padding: 100px;
   text-align: center;
