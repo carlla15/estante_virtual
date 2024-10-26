@@ -9,7 +9,7 @@
 
     <div class="form-outline mb-4">
       <input type="text" id="registerName" class="form-control form-control-lg" />
-      <label class="form-label" for="registerName">Seu nome</label>
+      <label class="form-label" for="registerName">Seu nome de usuario</label>
     </div>
 
     <div class="form-outline mb-4">
