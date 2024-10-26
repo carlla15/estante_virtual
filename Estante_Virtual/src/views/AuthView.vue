@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import AuthLogin from '@/components/AuthLogin.vue';
-import AuthRegister from '@/components/AuthRegister.vue';
+import AuthLogin from '@/components/auth/AuthLogin.vue';
+import AuthRegister from '@/components/auth/AuthRegister.vue';
 import BaseLayout from '@/components/BaseLayout.vue';
 
 export default {
