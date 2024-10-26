@@ -9,6 +9,7 @@
 
   <BaseFooter />
 </template>
+
 <script>
 import BaseFooter from "@/components/base_layout/BaseFooter.vue"
 import BaseNav from "@/components/base_layout/BaseNav.vue"
