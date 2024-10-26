@@ -1,4 +1,5 @@
 <template>
+
     <header>
         <h1>Gerencie seus livros !</h1>
         <p>
@@ -14,6 +15,7 @@
             Cadastre-se >>
         </router-link>
     </header>
+
 </template>
 
 <style scoped>

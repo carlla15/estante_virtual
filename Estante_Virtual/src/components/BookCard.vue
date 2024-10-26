@@ -1,23 +1,28 @@
 <template>
+
   <div v-if="books.length" class="book-container">
     <div v-for="book in books" :key="book.id" class="book-item">
       <span class="title">{{ book.title }}</span>
       <img :src="book.image_link || defaultImage" alt="Capa do livro">
     </div>
   </div>
+
   <div v-else>
     <p class="no-books-found">Nenhum livro disponível.</p>
   </div>
+
 </template>
 
 <script>
 export default {
+  name: "BookCard",
   props: {
     books: {
       type: Array,
       required: true,
     },
   },
+
   data() {
     return {
       defaultImage: "/img/bookImg.png",

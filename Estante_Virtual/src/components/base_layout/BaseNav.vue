@@ -1,4 +1,5 @@
 <template>
+    
     <nav class="navbar navbar-expand-lg custom-nav">
         <div class="container-fluid">
             <router-link class="nav-link navbar-brand" to="/">
@@ -36,10 +37,8 @@
             </div>
         </div>
     </nav>
-</template>
 
-<script>
-</script>
+</template>
 
 <style scoped>
 .custom-nav {

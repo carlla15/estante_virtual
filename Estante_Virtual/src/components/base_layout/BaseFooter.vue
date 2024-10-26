@@ -1,4 +1,5 @@
 <template>
+
     <footer>
         <h3>
             <i class="fa-solid fa-book-bookmark"></i>Pratileira Inteligente
@@ -17,10 +18,10 @@
         </a>
         <p>&copy; 2024 Pratileira Inteligente. Todos os direitos reservados.</p>
     </footer>
+
 </template>
 
-<script>
-</script>
+
 <style scoped>
 footer {
     padding: 100px;

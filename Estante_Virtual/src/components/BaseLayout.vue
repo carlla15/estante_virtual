@@ -1,4 +1,5 @@
 <template>
+
   <BaseNav />
 
   <main>
@@ -8,6 +9,7 @@
   </main>
 
   <BaseFooter />
+  
 </template>
 
 <script>
