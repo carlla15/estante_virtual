@@ -45,6 +45,7 @@
     background-color: var(--color_1);
     font-weight: bold;
     padding: 10px;
+    margin-bottom: 20px;
 
     & i {
         margin-right: 10px;
