@@ -11,8 +11,9 @@ const router = createRouter({
     },
     {
       path: '/book/:id',
-      name: 'BookPreview',
-      component: () => import ('../views/BookPreview.vue')
+      name: 'BookDetail',
+      props: true,
+      component: () => import('../views/BookDetail.vue')
     }
     ,
     {

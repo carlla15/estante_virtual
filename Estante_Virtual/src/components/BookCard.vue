@@ -1,7 +1,11 @@
 <template>
-
   <div v-if="books.length" class="book-container">
-    <div v-for="book in books" :key="book.id" class="book-item">
+    <div
+      v-for="book in books"
+      :key="book.id"
+      class="book-item"
+      @click="goToBookDetail(book)"
+    >
       <span class="title">{{ book.title }}</span>
       <img :src="book.image_link || defaultImage" alt="Capa do livro">
     </div>
@@ -10,7 +14,6 @@
   <div v-else>
     <p class="no-books-found">Nenhum livro disponível.</p>
   </div>
-
 </template>
 
 <script>
@@ -22,11 +25,15 @@ export default {
       required: true,
     },
   },
-
   data() {
     return {
       defaultImage: "/img/bookImg.png",
     };
+  },
+  methods: {
+    goToBookDetail(book) {
+      this.$router.push({ name: 'BookDetail', params: { id: book.id }, query: { book: JSON.stringify(book) } });
+    },
   },
 };
 </script>
