@@ -93,7 +93,7 @@ export default {
   }
 }
 
-.spinner{
+.spinner {
   margin: 100px;
   color: var(--color_1)
 }

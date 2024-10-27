@@ -1,7 +1,7 @@
 <template>
 
   <div v-if="books.length" class="book-container">
-    <div v-for="book in books" :key="book.id" class="book-item">
+    <div v-for="book in books" :key="book.id" class="book-item" @click="openBookPreview(book.id)">
       <span class="title">{{ book.title }}</span>
       <img :src="book.image_link || defaultImage" alt="Capa do livro">
     </div>
@@ -28,6 +28,15 @@ export default {
       defaultImage: "/img/bookImg.png",
     };
   },
+  methods: {
+    openBookPreview(bookId) {
+      this.$router.push(
+        {
+          name: 'BookPreview', params: { id: bookId }
+        }
+      )
+    }
+  }
 };
 </script>
 
