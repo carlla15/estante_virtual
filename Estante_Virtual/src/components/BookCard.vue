@@ -6,8 +6,8 @@
       class="book-item"
       @click="goToBookDetail(book)"
     >
-      <span class="title">{{ book.title }}</span>
-      <img :src="book.image_link || defaultImage" alt="Capa do livro">
+      <span class="title">{{ book.title || 'Título não disponível' }}</span>
+      <img :src="getImageSrc(book.image_link)" alt="Capa do livro">
     </div>
   </div>
 
@@ -31,6 +31,9 @@ export default {
     };
   },
   methods: {
+    getImageSrc(imageLink) {
+      return imageLink && imageLink !== 'N/A' ? imageLink : this.defaultImage;
+    },
     goToBookDetail(book) {
       this.$router.push({ name: 'BookDetail', params: { id: book.id }, query: { book: JSON.stringify(book) } });
     },
@@ -43,42 +46,42 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+}
 
-  & .book-item {
-    position: relative;
-    margin: 20px;
-    border: 1px solid red;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.74);
+.book-item {
+  position: relative;
+  margin: 20px;
+  border: 1px solid red;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.74);
+}
 
-    & .title {
-      font-size: 1.2em;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: var(--color_white);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: 1;
-    }
+.title {
+  font-size: 1.2em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color_white);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
 
-    & img {
-      width: 180px;
-      height: 250px;
-      object-fit: cover;
-      transition: 0.3s;
-    }
+.book-item img {
+  width: 180px;
+  height: 250px;
+  object-fit: cover;
+  transition: 0.3s;
+}
 
-    &:hover .title {
-      opacity: 1;
-    }
+.book-item:hover .title {
+  opacity: 1;
+}
 
-    &:hover img {
-      filter: brightness(40%) blur(2px);
-    }
-  }
+.book-item:hover img {
+  filter: brightness(40%) blur(2px);
 }
 
 .no-books-found {
