@@ -1,18 +1,16 @@
 <template>
 
     <BaseLayout>
-
-        <section class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
+        <section class="container py-5">
+            <div class="d-flex justify-content-center align-items-center">
                 <div class="col col-xl-10">
-                    <div class="card" style="border-radius: 1rem;">
+                    <div class="card">
                         <div class="row g-0">
-                            <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img src="/img/img_login.png" alt="login form" class="img-fluid h-100"
-                                    style="border-radius: 1rem 0 0 1rem;" />
+                            <div class="col-lg-5 d-none d-md-block">
+                                <img src="/img/img_login.png" alt="login form" class="img-fluid h-100" />
                             </div>
-                            <div class="col-md-6 col-lg-7 d-flex align-items-center">
-                                <div class="card-body p-4 p-lg-5 text-black">
+                            <div class="col-lg-7 d-flex align-items-center">
+                                <div class="card-body p-4 p-lg-5">
                                     <AuthLogin v-show="isLogin" @switchToRegister="isLogin = false" key="login" />
                                     <AuthRegister v-show="!isLogin" @switchToLogin="isLogin = true" key="register" />
                                 </div>
@@ -22,7 +20,6 @@
                 </div>
             </div>
         </section>
-
     </BaseLayout>
 
 </template>
@@ -49,5 +46,13 @@ export default {
 <style scoped>
 section {
     background-color: var(--color_4);
+
+    & .card {
+        border-radius: 1rem;
+
+        & img {
+            border-radius: 1rem 0 0 1rem;
+        }
+    }
 }
 </style>
