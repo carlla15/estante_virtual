@@ -26,7 +26,4 @@ export default {
 </script>
 
 <style scoped>
-main {
-  background-color: var(--color_4);
-}
 </style>

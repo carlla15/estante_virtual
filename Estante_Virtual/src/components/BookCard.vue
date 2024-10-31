@@ -51,7 +51,7 @@ export default {
 .book-item {
   position: relative;
   margin: 20px;
-  border: 1px solid red;
+  border: 2px solid red;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.74);

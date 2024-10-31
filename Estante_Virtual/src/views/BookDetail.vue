@@ -35,9 +35,11 @@ export default {
     let bookData;
     try {
       bookData = JSON.parse(this.$route.query.book);
+
     } catch (error) {
       console.error("Erro ao analisar dados do livro:", error);
-      bookData = {}; // Define book como um objeto vazio se ocorrer um erro
+      bookData = {};
+
     }
 
     return {
@@ -50,12 +52,12 @@ export default {
 
 <style scoped>
 .book-detail {
-  margin: 20px; /* Adiciona margem ao redor do conteúdo */
+  margin: 20px;
 }
 
 .book-image {
-  max-width: 100%; /* A imagem se ajusta ao tamanho do container */
-  border-radius: 5px; /* Adiciona bordas arredondadas à imagem */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  max-width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 </style>

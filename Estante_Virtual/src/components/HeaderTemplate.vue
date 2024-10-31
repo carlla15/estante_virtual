@@ -1,5 +1,4 @@
 <template>
-
     <header>
         <h1>Gerencie seus livros !</h1>
         <p>
@@ -15,12 +14,11 @@
             Cadastre-se >>
         </router-link>
     </header>
-
 </template>
 
 <style scoped>
 header {
-    background: var(--color_black);
+    background: var(--color_4);
     padding: 40px;
 
     & h1 {
@@ -28,7 +26,7 @@ header {
     }
 
     & p {
-        color: var(--color_2);
+        color: var(--color_white);
     }
 
     & .btn-primary {

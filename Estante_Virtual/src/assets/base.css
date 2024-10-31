@@ -4,12 +4,13 @@
 }
 
 :root {
-  --color_1: #920D0D;
+  --color_1: #780000;
   --color_1_hover: #6d0b0b;
-  --color_2: #F87F7F;
+  --color_2: #C1121F;
   --color_2_hover:#ac5959;
-  --color_3: #70160E;
-  --color_4: #F0EED9;
+  --color_3: #FDF0D5;
+  --color_4: #003049;
+  --color_5:#669BBC;
   --color_white: #ffff;
   --color_black: #060606;
 }

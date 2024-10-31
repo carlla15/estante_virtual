@@ -27,7 +27,7 @@ footer {
     padding: 100px;
     text-align: center;
     color: var(--color_white);
-    background-color: var(--color_black);
+    background-color: var(--color_4);
 
     & h3 {
         margin: 10px;
@@ -47,7 +47,7 @@ footer {
     }
 
     & a:hover {
-        color: cornflowerblue;
+        color: var(--color_5);
     }
 }
 </style>

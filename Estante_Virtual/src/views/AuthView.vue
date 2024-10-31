@@ -44,8 +44,7 @@ export default {
 </script>
 
 <style scoped>
-section {
-    background-color: var(--color_4);
+section {   
 
     & .card {
         border-radius: 1rem;
