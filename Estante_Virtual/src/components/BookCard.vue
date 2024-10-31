@@ -50,7 +50,7 @@ export default {
 
 .book-item {
   position: relative;
-  margin: 20px;
+  margin: 30px;
   border: 2px solid red;
   border-radius: 8px;
   overflow: hidden;
@@ -72,7 +72,6 @@ export default {
 .book-item img {
   width: 180px;
   height: 250px;
-  object-fit: cover;
   transition: 0.3s;
 }
 
