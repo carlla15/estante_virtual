@@ -1,11 +1,6 @@
 <template>
   <div v-if="books.length" class="book-container">
-    <div
-      v-for="book in books"
-      :key="book.id"
-      class="book-item"
-      @click="goToBookDetail(book)"
-    >
+    <div v-for="book in books" :key="book.id" class="book-item" @click="goToBookDetail(book)">
       <span class="title">{{ book.title || 'Título não disponível' }}</span>
       <img :src="getImageSrc(book.image_link)" alt="Capa do livro">
     </div>
@@ -16,28 +11,25 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "BookCard",
-  props: {
-    books: {
-      type: Array,
-      required: true,
-    },
+<script setup>
+import { useRouter } from 'vue-router';
+
+const props = defineProps({
+  books: {
+    type: Array,
+    required: true,
   },
-  data() {
-    return {
-      defaultImage: "/img/bookImg.png",
-    };
-  },
-  methods: {
-    getImageSrc(imageLink) {
-      return imageLink && imageLink !== 'N/A' ? imageLink : this.defaultImage;
-    },
-    goToBookDetail(book) {
-      this.$router.push({ name: 'BookDetail', params: { id: book.id }, query: { book: JSON.stringify(book) } });
-    },
-  },
+});
+
+const defaultImage = "/img/bookImg.png";
+const router = useRouter();
+
+const getImageSrc = (imageLink) => {
+  return imageLink && imageLink !== 'N/A' ? imageLink : defaultImage;
+};
+
+const goToBookDetail = (book) => {
+  router.push({ name: 'BookDetail', params: { id: book.id }, query: { book: JSON.stringify(book) } });
 };
 </script>
 
@@ -46,41 +38,41 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
 
-.book-item {
-  position: relative;
-  margin: 30px;
-  border: 2px solid red;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.74);
-}
+  .book-item {
+    position: relative;
+    margin: 30px;
+    border: 2px solid red;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.74);
 
-.title {
-  font-size: 1.2em;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: var(--color_white);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
+    img {
+      width: 180px;
+      height: 250px;
+      transition: 0.3s;
+    }
 
-.book-item img {
-  width: 180px;
-  height: 250px;
-  transition: 0.3s;
-}
+    &:hover .title {
+      opacity: 1;
+    }
 
-.book-item:hover .title {
-  opacity: 1;
-}
+    &:hover img {
+      filter: brightness(40%) blur(2px);
+    }
+  }
 
-.book-item:hover img {
-  filter: brightness(40%) blur(2px);
+  .title {
+    font-size: 1.2em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--color_white);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+  }
 }
 
 .no-books-found {

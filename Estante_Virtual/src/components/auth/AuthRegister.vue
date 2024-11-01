@@ -40,20 +40,19 @@
 <style scoped>
 form {
 
-  & div {
+  div {
     margin-bottom: 16px;
 
-    & input {
+    input {
       border-color: gray;
     }
   }
 
-  & p,
-  a {
+  p, a {
     color: #393f81;
   }
 
-  & i {
+  i {
     font-size: 2em;
     margin-right: 10px
   }

@@ -1,5 +1,4 @@
 <template>
-
     <BaseLayout>
         <section class="container py-5">
             <div class="d-flex justify-content-center align-items-center">
@@ -11,8 +10,8 @@
                             </div>
                             <div class="col-lg-7 d-flex align-items-center">
                                 <div class="card-body p-4 p-lg-5">
-                                    <AuthLogin v-show="isLogin" @switchToRegister="isLogin = false" key="login" />
-                                    <AuthRegister v-show="!isLogin" @switchToLogin="isLogin = true" key="register" />
+                                    <AuthLogin v-show="isLogin" @switchToRegister="toggleAuth" key="login" />
+                                    <AuthRegister v-show="!isLogin" @switchToLogin="toggleAuth" key="register" />
                                 </div>
                             </div>
                         </div>
@@ -21,35 +20,24 @@
             </div>
         </section>
     </BaseLayout>
-
 </template>
 
-<script>
+<script setup>
+import { ref } from 'vue';
 import AuthLogin from '@/components/auth/AuthLogin.vue';
 import AuthRegister from '@/components/auth/AuthRegister.vue';
 import BaseLayout from '@/components/BaseLayout.vue';
 
-export default {
-    components: {
-        BaseLayout,
-        AuthLogin,
-        AuthRegister
-    },
-    data() {
-        return {
-            isLogin: true
-        };
-    },
-};
+const isLogin = ref(true);
+const toggleAuth = () => (isLogin.value = !isLogin.value);
 </script>
 
 <style scoped>
-section {   
-
-    & .card {
+section {
+    .card {
         border-radius: 1rem;
 
-        & img {
+        img {
             border-radius: 1rem 0 0 1rem;
         }
     }

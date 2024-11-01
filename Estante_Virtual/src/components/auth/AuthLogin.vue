@@ -34,26 +34,26 @@ form {
     margin-bottom: 16px;
     padding-bottom: 4px;
 
-    & input {
+    input {
       border-color: gray;
     }
   }
 
-  & i {
+  i {
     font-size: 2em;
     margin-right: 10px
   }
 
-  & a {
+  a {
     font-size: small;
     color: var(--color_black);
   }
 
-  & p {
+  p {
     margin-top: 16px;
     color: #393f81;
 
-    & a {
+    a {
       color: #393f81
     }
   }

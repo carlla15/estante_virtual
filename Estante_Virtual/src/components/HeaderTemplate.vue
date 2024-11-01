@@ -21,33 +21,33 @@ header {
     background: var(--color_4);
     padding: 40px;
 
-    & h1 {
+    h1 {
         color: var(--color_white);
     }
 
-    & p {
+    p {
         color: var(--color_white);
     }
 
-    & .btn-primary {
+    .btn-primary {
         border-color: var(--color_white);
         margin-left: 20px;
         margin-right: 20px;
     }
 
-    & .btn-entrar {
+    .btn-entrar {
         background-color: var(--color_1);
     }
 
-    & .btn-cadastrar {
+    .btn-cadastrar {
         background-color: var(--color_2);
     }
 
-    & .btn-entrar:hover {
+    .btn-entrar:hover {
         background-color: var(--color_1_hover);
     }
 
-    & .btn-cadastrar:hover {
+    .btn-cadastrar:hover {
         background-color: var(--color_2_hover);
     }
 }
