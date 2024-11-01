@@ -32,7 +32,7 @@
     </div>
 
     <p>Já tem uma conta?
-      <a href="#!" @click="$emit('switchToLogin')">Login here</a>
+      <a href="#" @click="$emit('switchToLogin')">Login here</a>
     </p>
   </form>
 </template>
