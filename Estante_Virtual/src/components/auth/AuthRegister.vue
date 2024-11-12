@@ -49,7 +49,7 @@ form {
   }
 
   p, a {
-    color: #393f81;
+    color: var(--color_4);
   }
 
   i {

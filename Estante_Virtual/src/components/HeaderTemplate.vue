@@ -10,7 +10,7 @@
             Entre!
         </router-link>
 
-        <router-link to="/cadastro" class="btn btn-primary btn-cadastrar" role="button">
+        <router-link to="/authentication" class="btn btn-primary btn-cadastrar" role="button">
             Cadastre-se >>
         </router-link>
     </header>

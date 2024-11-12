@@ -51,10 +51,10 @@ form {
 
   p {
     margin-top: 16px;
-    color: #393f81;
+    color: var(--color_4);
 
     a {
-      color: #393f81
+      color: var(--color_4);
     }
   }
 }
