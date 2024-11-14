@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import BookcaseView from '../views/BookcaseView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,6 +21,13 @@ const router = createRouter({
       path: '/authentication',
       name: 'authentication',
       component: () => import('../views/AuthView.vue')
+    },
+
+    {
+      path: '/bookcase',
+      name: 'bookcase',
+      component: () => import('../views/BookcaseView.vue') 
+
     }
   ]
 })
