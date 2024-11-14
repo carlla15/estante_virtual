@@ -23,7 +23,7 @@
                         </router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/">
+                        <router-link class="nav-link" to="/bookcase">
                             <i class="fa-regular fa-bookmark"></i>Minha estante
                         </router-link>
                     </li>
