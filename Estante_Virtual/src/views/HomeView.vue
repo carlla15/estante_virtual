@@ -65,7 +65,7 @@ onMounted(fetchBooks);
 <style scoped>
 .shelf-title {
   padding: 20px;
-  color: var(--color_1);
+  color: var(--color_4);
 
   i {
     margin: 10px;

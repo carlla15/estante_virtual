@@ -1,9 +1,9 @@
 <template>
-    
+
     <nav class="navbar navbar-expand-lg custom-nav">
         <div class="container-fluid">
             <router-link class="nav-link navbar-brand" to="/">
-                <i class="fa-solid fa-book-bookmark"></i>
+                <img src="/img/logoTransparente.png" alt="">
                 <span>Pratileira Inteligente</span>
             </router-link>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -47,19 +47,24 @@
     padding: 10px;
     margin-bottom: 20px;
 
-    & i {
+
+    img {
+        width: 50px;
+        margin-right: 20px;
+    }
+    i {
         margin-right: 10px;
         font-size: 1.5em;
     }
 
-    & a {
+    a {
         color: var(--color_white);
         margin-right: 50px;
         padding: 10px;
         border-radius: 8px;
     }
 
-    & a:hover {
+    a:hover {
         background-color: var(--color_1_hover);
     }
 }
