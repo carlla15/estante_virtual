@@ -4,14 +4,14 @@
             <div class="section-title">
                 <h2> <i class="fa-solid fa-circle-check"></i> Livros Lidos</h2>
             </div>
-            <section class="book-grid">
+            <section class="book-grid d-flex">
                 <BookCard :books="highlightedBooks" />
             </section>
 
             <div class="section-title">
                 <h2><i class="fa-solid fa-flag"></i> Livros na Estante</h2>
             </div>
-            <section class="book-grid">
+            <section class="book-grid d-flex">
                 <BookCard :books="otherBooks" />
             </section>
         </div>
