@@ -49,7 +49,8 @@
 
 
     img {
-        width: 50px;
+        height: 40px;
+        width: auto;
         margin-right: 20px;
     }
     i {
