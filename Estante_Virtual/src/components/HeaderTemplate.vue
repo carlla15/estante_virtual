@@ -2,7 +2,7 @@
     <header>
         <h1>Gerencie seus livros !</h1>
         <p>
-            A estante virtual é o melhor lugar para organizar, gerenciar e compartilhar suas leituras.
+            A Prateleira Inteligente  é o melhor lugar para organizar, gerenciar e compartilhar suas leituras.
             Faça seu login ou cadastre-se gratuitamente para começar agora mesmo a organizar seus livros.
         </p>
 

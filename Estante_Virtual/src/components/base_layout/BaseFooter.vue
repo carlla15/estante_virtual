@@ -2,7 +2,7 @@
 
     <footer>
         <h3>
-            <i class="fa-solid fa-book-bookmark"></i>Pratileira Inteligente
+            <i class="fa-solid fa-book-bookmark"></i>Prateleira Inteligente
         </h3>
         <a href="#" target="_blank">
             <i class="fa-brands fa-facebook"></i>
@@ -16,7 +16,7 @@
         <a href="#" target="_blank">
             <i class="fa-brands fa-linkedin"></i>
         </a>
-        <p>&copy; 2024 Pratileira Inteligente. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Prateleira Inteligente. Todos os direitos reservados.</p>
     </footer>
 
 </template>

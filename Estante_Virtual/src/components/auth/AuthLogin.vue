@@ -2,7 +2,7 @@
   <form>
     <div>
       <i class="fa-solid fa-book-bookmark"></i>
-      <span class="h1 fw-bold">Pratileira Inteligente</span>
+      <span class="h1 fw-bold">Prateleira Inteligente</span>
     </div>
 
     <h5>Entre na sua conta</h5>
