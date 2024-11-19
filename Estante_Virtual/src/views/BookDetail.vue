@@ -1,6 +1,6 @@
 <template>
   <BaseLayout>
-    <div class="container book-detail">
+    <section class="container book-detail">
       <div class="row">
         <div class="col-md-4">
           <img :src="bookData.image_link !== 'N/A' ? bookData.image_link : defaultImage" alt="Capa do livro"
@@ -17,7 +17,7 @@
           <p><strong>Idioma:</strong> {{ bookData.language || 'N/A' }}</p>
         </div>
       </div>
-    </div>
+    </section>
   </BaseLayout>
 </template>
 
@@ -41,12 +41,15 @@ const bookData = computed(() => {
 
 <style scoped>
 .book-detail {
-  margin: 20px;
+  margin: 50px;
 
   .book-image {
     max-width: 100%;
-    border-radius: 5px;
+    border-radius: 8px;
+    border: 2px solid red;
+    overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
+
 }
 </style>
