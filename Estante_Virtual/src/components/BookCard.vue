@@ -2,7 +2,8 @@
   <div v-if="books.length" class="book-container">
     <div v-for="book in books" :key="book.id" class="book-item" @click="goToBookDetail(book)">
       <span class="title">{{ book.title || 'Título não disponível' }}</span>
-      <img :src="getImageSrc(book.image_link)" alt="Capa do livro">
+      <!-- Use diretamente book.image_link -->
+      <img :src="book.image_link !== 'N/A' ? book.image_link : defaultImage" alt="Capa do livro">
     </div>
   </div>
 
@@ -23,10 +24,6 @@ const props = defineProps({
 
 const defaultImage = "/img/bookImg.png";
 const router = useRouter();
-
-const getImageSrc = (imageLink) => {
-  return imageLink && imageLink !== 'N/A' ? imageLink : defaultImage;
-};
 
 const goToBookDetail = (book) => {
   router.push({ name: 'BookDetail', params: { id: book.id }, query: { book: JSON.stringify(book) } });

@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "estante-virtual2"
-  }
+    "prateleira-inteligente": "prateleira-inteligente",
+    "default": "prateleira-inteligente"
+  },
+  "targets": {},
+  "etags": {}
 }
