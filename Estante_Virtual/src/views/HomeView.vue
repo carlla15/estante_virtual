@@ -32,11 +32,12 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { db } from '../assets/js/firebase';
-import { collection, getDocs } from 'firebase/firestore';
 import BaseLayout from '@/components/BaseLayout.vue';
 import HeaderTemplate from '@/components/HeaderTemplate.vue';
 import BookCard from '@/components/BookCard.vue';
+import DAOService from '@/services/DAOService';
+
+const bookService = new DAOService('books');
 
 const books = ref([]);
 const highlightedBooks = ref([]);
@@ -44,20 +45,19 @@ const otherBooks = ref([]);
 const isLoading = ref(true);
 
 const fetchBooks = async () => {
+  isLoading.value = true;
   try {
-    const querySnapshot = await getDocs(collection(db, "books"));
-    books.value = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    books.value = await bookService.getAll();
 
-    highlightedBooks.value = books.value.filter((book) => book.isHighlighted);
-    otherBooks.value = books.value.filter((book) => !book.isHighlighted);
-
+    highlightedBooks.value = books.value.filter(book => book.isHighlighted);
+    otherBooks.value = books.value.filter(book => !book.isHighlighted);
   } catch (error) {
-    console.error("Erro ao buscar livros do Firestore:", error);
-
+    console.error('Erro ao buscar livros:', error);
   } finally {
     isLoading.value = false;
   }
 };
+
 
 onMounted(fetchBooks);
 </script>
