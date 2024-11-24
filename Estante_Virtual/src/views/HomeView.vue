@@ -2,10 +2,8 @@
   <HeaderTemplate />
 
   <BaseLayout>
-    <div v-if="isLoading" class="d-flex justify-content-center">
-      <div class="spinner-border spinner" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
+    <div v-if="isLoading">
+      <Spinner />
     </div>
 
     <div v-else>
@@ -36,6 +34,7 @@ import BaseLayout from '@/components/BaseLayout.vue';
 import HeaderTemplate from '@/components/HeaderTemplate.vue';
 import BookCard from '@/components/BookCard.vue';
 import DAOService from '@/services/DAOService';
+import Spinner from '@/components/Spinner.vue';
 
 const bookService = new DAOService('books');
 
@@ -77,11 +76,5 @@ onMounted(fetchBooks);
     font-weight: bold;
     font-size: 1.5em;
   }
-}
-
-
-.spinner {
-  margin: 100px;
-  color: var(--color_1);
 }
 </style>
