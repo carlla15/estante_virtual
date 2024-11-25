@@ -1,47 +1,58 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import BaseLayout from '@/components/BaseLayout.vue';
+import DAOService from '@/services/DAOService';
+
+const bookService = new DAOService('books');
+const route = useRoute();
+const defaultImage = "/img/bookImg.png";
+
+const fetchBookData = async (bookId) => {
+  bookData.value = await bookService.get(bookId);
+}
+
+const bookData = ref({
+  title: '',
+  authors: [],
+  categories: [],
+  description: '',
+  page_count: '',
+  published_date: '',
+  publisher: '',
+  language: '',
+  image_link: '',
+});
+
+onMounted(() => {
+  window.scrollTo(0, 0);
+  const bookId = route.params.id;
+  fetchBookData(bookId);
+});
+</script>
+
 <template>
   <BaseLayout>
     <section class="row book-detail">
 
       <aside class="col-md-4">
-        <img :src="bookData.image_link !== 'N/A' ? bookData.image_link : defaultImage" alt="Capa do livro"
-          class="book-image" />
+        <img :src="bookData.image_link && bookData.image_link !== 'N/A' ? bookData.image_link : defaultImage" 
+             alt="Capa do livro" class="book-image" />
       </aside>
 
       <div class="col-md-8">
         <h2>{{ bookData.title || 'Título não disponível' }}</h2>
-        <p><strong>Autor(es):</strong> {{ bookData.authors?.join(', ') || 'N/A' }}</p>
-        <p><strong>Categoria(s):</strong> {{ bookData.categories?.join(', ') || 'N/A' }}</p>
-        <p><strong>Descrição:</strong> {{ bookData.description || 'N/A' }}</p>
-        <p><strong>Páginas:</strong> {{ bookData.page_count || 'N/A' }}</p>
-        <p><strong>Data de Publicação:</strong> {{ bookData.published_date || 'N/A' }}</p>
-        <p><strong>Editora:</strong> {{ bookData.publisher || 'N/A' }}</p>
-        <p><strong>Idioma:</strong> {{ bookData.language || 'N/A' }}</p>
+        <p><strong>Autor(es):</strong> {{ bookData.authors?.join(', ') || 'Não informado' }}</p>
+        <p><strong>Categoria(s):</strong> {{ bookData.categories?.join(', ') || 'Não informado' }}</p>
+        <p><strong>Descrição:</strong> {{ bookData.description || 'Descrição indisponível' }}</p>
+        <p><strong>Páginas:</strong> {{ bookData.page_count || 'Não informado' }}</p>
+        <p><strong>Data de Publicação:</strong> {{ bookData.published_date || 'Não informado' }}</p>
+        <p><strong>Editora:</strong> {{ bookData.publisher || 'Não informado' }}</p>
+        <p><strong>Idioma:</strong> {{ bookData.language || 'Não informado' }}</p>
       </div>
     </section>
   </BaseLayout>
 </template>
-
-<script setup>
-import { computed, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
-import BaseLayout from '@/components/BaseLayout.vue';
-
-const route = useRoute();
-const defaultImage = "/img/bookImg.png";
-
-const bookData = computed(() => {
-  try {
-    return JSON.parse(route.query.book);
-  } catch (error) {
-    console.error("Erro ao analisar dados do livro:", error);
-    return {};
-  }
-});
-
-onMounted(() => {
-  window.scrollTo(0, 0);
-});
-</script>
 
 <style scoped>
 .book-detail {
