@@ -47,12 +47,12 @@
     padding: 10px;
     margin-bottom: 20px;
 
-
     img {
         height: 40px;
         width: auto;
         margin-right: 20px;
     }
+
     i {
         margin-right: 10px;
         font-size: 1.5em;
@@ -63,10 +63,13 @@
         margin-right: 50px;
         padding: 10px;
         border-radius: 8px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: var(--color_1_hover);
+            transform: scale(1.1);
+        }
     }
 
-    a:hover {
-        background-color: var(--color_1_hover);
-    }
 }
 </style>
