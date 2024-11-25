@@ -37,7 +37,7 @@ const goToBookDetail = (book) => {
 
   .book-item {
     position: relative;
-    margin: 30px;
+    margin: 25px;
     border: 2px solid red;
     border-radius: 8px;
     overflow: hidden;
