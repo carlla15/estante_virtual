@@ -1,3 +1,33 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+
+import BaseLayout from '@/components/BaseLayout.vue';
+import HeaderTemplate from '@/components/HeaderTemplate.vue';
+import BookCard from '@/components/BookCard.vue';
+import DAOService from '@/services/DAOService';
+import Spinner from '@/components/Spinner.vue';
+
+const bookService = new DAOService('books');
+
+const books = ref([]);
+const highlightedBooks = ref([]);
+const otherBooks = ref([]);
+const isLoading = ref(true);
+
+const fetchBooks = async () => {
+  isLoading.value = true;
+  books.value = await bookService.getAll();
+
+  highlightedBooks.value = books.value.filter(book => book.isHighlighted);
+  otherBooks.value = books.value.filter(book => !book.isHighlighted);
+  isLoading.value = false;
+};
+
+
+onMounted(fetchBooks);
+</script>
+
+
 <template>
   <HeaderTemplate />
 
@@ -28,38 +58,6 @@
   </BaseLayout>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
-import BaseLayout from '@/components/BaseLayout.vue';
-import HeaderTemplate from '@/components/HeaderTemplate.vue';
-import BookCard from '@/components/BookCard.vue';
-import DAOService from '@/services/DAOService';
-import Spinner from '@/components/Spinner.vue';
-
-const bookService = new DAOService('books');
-
-const books = ref([]);
-const highlightedBooks = ref([]);
-const otherBooks = ref([]);
-const isLoading = ref(true);
-
-const fetchBooks = async () => {
-  isLoading.value = true;
-  try {
-    books.value = await bookService.getAll();
-
-    highlightedBooks.value = books.value.filter(book => book.isHighlighted);
-    otherBooks.value = books.value.filter(book => !book.isHighlighted);
-  } catch (error) {
-    console.error('Erro ao buscar livros:', error);
-  } finally {
-    isLoading.value = false;
-  }
-};
-
-
-onMounted(fetchBooks);
-</script>
 
 <style scoped>
 .shelf-title {
