@@ -1,13 +1,15 @@
 <template>
-  <BaseNav />
+  <div>
+    <BaseNav />
 
-  <main>
-    <slot>
-      <!-- O conteúdo ficará aqui dentro -->
-    </slot>
-  </main>
+    <main>
+      <slot>
+        <!-- O conteúdo ficará aqui dentro -->
+      </slot>
+    </main>
 
-  <BaseFooter />
+    <BaseFooter />
+  </div>
 </template>
 
 <script setup>
