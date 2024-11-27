@@ -1,3 +1,8 @@
+<script setup>
+import BaseFooter from "@/components/base_layout/BaseFooter.vue";
+import BaseNav from "@/components/base_layout/BaseNav.vue";
+</script>
+
 <template>
   <div>
     <BaseNav />
@@ -12,9 +17,5 @@
   </div>
 </template>
 
-<script setup>
-import BaseFooter from "@/components/base_layout/BaseFooter.vue";
-import BaseNav from "@/components/base_layout/BaseNav.vue";
-</script>
 
 <style scoped></style>
