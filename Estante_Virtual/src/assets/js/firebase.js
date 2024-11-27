@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-
+import { getAuth } from "firebase/auth"
 const firebaseConfig = {
     apiKey: "AIzaSyBF6aowvCkRp_J2Xh7JETZliylDK7s1aGE",
     authDomain: "prateleira-inteligente.firebaseapp.com",
@@ -12,7 +12,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-// Exportar Firestore
+
 const db = getFirestore(app);
 
-export { db };
+const auth = getAuth(app);
+
+export { db,auth };

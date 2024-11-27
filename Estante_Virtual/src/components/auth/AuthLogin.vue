@@ -27,6 +27,10 @@
   </form>
 </template>
 
+<script setup>
+
+</script>
+
 <style scoped>
 form {
 
