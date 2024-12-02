@@ -10,10 +10,7 @@ const logout = async () => {
 }
 
 onMounted(() => {
-    const user = auth.currentUser;
-    if (user) {
-        userName.value = user.displayName || user.email;
-    }
+    userName.value = auth.currentUser.email;
 });
 </script>
 
