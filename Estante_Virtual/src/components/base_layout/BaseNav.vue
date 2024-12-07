@@ -1,17 +1,6 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { auth, onAuthStateChanged } from '@/assets/js/firebase';
-
 import UserTag from '../UserTag.vue';
 
-const isAuthenticated = ref(false);
-
-// Verifica se o usuário está autenticado
-onMounted(() => {
-  onAuthStateChanged(auth, (user) => {
-    isAuthenticated.value = !!user;
-  });
-});
 </script>
 
 <template>
@@ -42,12 +31,7 @@ onMounted(() => {
               <i class="fa-regular fa-bookmark"></i>Minha estante
             </router-link>
           </li>
-          <li class="nav-item" v-if="!isAuthenticated">
-            <router-link class="nav-link" to="/authentication">
-              <i class="fa-solid fa-right-to-bracket"></i>Entre
-            </router-link>
-          </li>
-          <li class="nav-item" v-else>
+          <li class="nav-item">
             <UserTag />
           </li>
         </ul>

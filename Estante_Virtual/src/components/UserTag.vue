@@ -1,32 +1,50 @@
 <script setup>
-import { getAuth, signOut } from 'firebase/auth';
-import { onMounted, ref } from 'vue';
+import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
+import { ref } from 'vue';
 
 const auth = getAuth();
 const userName = ref('');
+const isAuthenticated = ref(false);
 
+// Função para fazer logout
 const logout = async () => {
-    await signOut(auth);
+  await signOut(auth);
+  isAuthenticated.value = false;
+  userName.value = '';
 }
 
-onMounted(() => {
-    userName.value = auth.currentUser.email;
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    userName.value = user.email;
+    isAuthenticated.value = true;
+  } else {
+    isAuthenticated.value = false;
+    userName.value = '';
+  }
 });
 </script>
 
 <template>
+  <div v-if="!isAuthenticated">
+    <router-link class="nav-link" to="/authentication">
+      <i class="fa-solid fa-right-to-bracket"></i> Entre
+    </router-link>
+  </div>
+
+  <div v-else>
     <div class="dropdown">
-        <a class="btn nav-link" type="button" data-bs-toggle="dropdown">
-            <i class="fa-regular fa-user"></i> {{ userName }}
-        </a>
-        <ul class="dropdown-menu">
-            <li>
-                <button @click="logout()" class="dropdown-item">
-                    <i class="fa-solid fa-sign-out-alt"></i> Sair
-                </button>
-            </li>
-        </ul>
+      <a class="btn nav-link" type="button" data-bs-toggle="dropdown">
+        <i class="fa-regular fa-user"></i> {{ userName }}
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <button @click="logout()" class="dropdown-item">
+            <i class="fa-solid fa-sign-out-alt"></i> Sair
+          </button>
+        </li>
+      </ul>
     </div>
+  </div>
 </template>
 
 <style scoped>
