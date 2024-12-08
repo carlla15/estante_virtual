@@ -38,9 +38,22 @@ const loginData = ref({
   password: ''
 });
 
+const loginUser = async () => {
+  try {const userCredential = await signInWithEmailAndPassword(
+      auth,
+      loginData.value.email,
+      loginData.value.password
+    );
 
+    const user = userCredential.user;
+    console.log('Usuário logado:', user);
 
-
+    alert('Login realizado com sucesso!');
+  } catch (error) {
+    console.error('Erro ao fazer login:', error.message);
+    alert('Email ou senha incorretos!');
+  }
+};
 
 </script>
 
