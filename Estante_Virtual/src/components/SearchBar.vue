@@ -1,21 +1,22 @@
 <script setup>
-
 </script>
 
 <template>
-    <a class="nav-link d-flex" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-        <i class="fa-solid fa-magnifying-glass"></i>Buscar
-    </a>
+    <div class="d-flex align-items-center me-4">
+        <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+            <i class="fa-solid fa-magnifying-glass"></i>Buscar
+        </a>
 
-    <div id="collapseTwo" class="collapse">
-        <input class="form-control form-control-lg m-3" type="text" placeholder="Digite o título que você esta procurando ...">
+        <div id="collapseTwo" class="collapse me-5">
+            <input class="form-control form-control-lg" type="text" placeholder="Digite o título...">
+        </div>
     </div>
 </template>
 
 <style scoped>
 a {
     color: var(--color_white);
-    margin-right: 50px;
+    margin-right: 10px;
     padding: 10px;
     border-radius: 8px;
     transition: all 0.3s ease;
