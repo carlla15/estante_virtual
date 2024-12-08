@@ -1,4 +1,5 @@
 <script setup>
+import SearchBar from '../SearchBar.vue';
 import UserTag from '../UserTag.vue';
 
 </script>
@@ -22,9 +23,7 @@ import UserTag from '../UserTag.vue';
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/">
-              <i class="fa-solid fa-magnifying-glass"></i>Buscar
-            </router-link>
+            <SearchBar />
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/bookcase">
@@ -41,6 +40,7 @@ import UserTag from '../UserTag.vue';
 </template>
 
 <style scoped>
+
 .custom-nav {
   background-color: var(--color_1);
   font-weight: bold;
