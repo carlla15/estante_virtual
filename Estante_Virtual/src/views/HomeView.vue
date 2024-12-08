@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 
 import BaseLayout from '@/components/BaseLayout.vue';
 import HeaderTemplate from '@/components/HeaderTemplate.vue';
-import BookCard from '@/components/BookCard.vue';
+import BookCard from '@/components/BooksCards.vue';
 import DAOService from '@/services/DAOService';
 import Spinner from '@/components/Spinner.vue';
 

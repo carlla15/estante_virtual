@@ -23,7 +23,7 @@ import { ref, onMounted } from 'vue';
 import { db } from '@/assets/js/firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import BaseLayout from '@/components/BaseLayout.vue';
-import BookCard from '@/components/BookCard.vue';
+import BookCard from '@/components/BooksCards.vue';
 
 const highlightedBooks = ref([]);
 const otherBooks = ref([]);
