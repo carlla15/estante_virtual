@@ -1,14 +1,7 @@
 <script setup>
-import DAOService from '@/services/DAOService';
-import { ref } from 'vue';
+import { inject} from 'vue';
 
-const searchValue = ref('');
-
-const bookService = new DAOService('books');
-
-
-
-
+const searchValue = inject('searchValue')
 </script>
 
 <template>
