@@ -1,4 +1,14 @@
 <script setup>
+import DAOService from '@/services/DAOService';
+import { ref } from 'vue';
+
+const searchValue = ref('');
+
+const bookService = new DAOService('books');
+
+
+
+
 </script>
 
 <template>
@@ -8,7 +18,7 @@
         </a>
 
         <div id="collapseTwo" class="collapse me-5">
-            <input class="form-control form-control-lg" type="text" placeholder="Digite o título...">
+            <input class="form-control form-control-lg" v-model="searchValue" type="text" placeholder="Digite o título...">
         </div>
     </div>
 </template>
