@@ -29,6 +29,19 @@
 
 <script setup>
 
+import { ref } from 'vue';
+import { auth, signInWithEmailAndPassword } from '@/assets/js/firebase';
+
+
+const loginData = ref({
+  email: '',
+  password: ''
+});
+
+
+
+
+
 </script>
 
 <style scoped>
