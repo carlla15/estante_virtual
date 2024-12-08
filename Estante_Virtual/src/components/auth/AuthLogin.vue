@@ -1,4 +1,5 @@
 <template>
+  
   <form>
     <div>
       <i class="fa-solid fa-book-bookmark"></i>
@@ -7,17 +8,17 @@
 
     <h5>Entre na sua conta</h5>
     <div>
-      <input type="email" id="loginEmail" class="form-control form-control-lg" />
+      <input type="email" v-model="loginData.email" class="form-control form-control-lg"/>
       <label class="form-label" for="loginEmail">Endereço de email</label>
     </div>
 
     <div>
-      <input type="password" id="loginPassword" class="form-control form-control-lg" />
+      <input type="password" v-model="loginData.password" class="form-control form-control-lg" />
       <label class="form-label" for="loginPassword">Senha</label>
     </div>
 
     <div>
-      <button class="btn btn-dark btn-lg btn-block" type="button">Login</button>
+      <button @click="loginUser" class="btn btn-dark btn-lg btn-block" type="button">Login</button>
     </div>
 
     <a href="#!">Esqueceu sua senha ?</a>
