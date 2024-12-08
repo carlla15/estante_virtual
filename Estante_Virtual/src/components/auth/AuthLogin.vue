@@ -28,7 +28,6 @@ const loginUser = async () => {
 
 </script>
 
-
 <template>
   
   <form>
