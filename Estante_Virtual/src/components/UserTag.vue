@@ -1,8 +1,8 @@
 <script setup>
-import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
 import { ref } from 'vue';
+import { auth } from '@/assets/js/firebase';
+import { signOut, onAuthStateChanged } from 'firebase/auth';
 
-const auth = getAuth();
 const userName = ref('');
 const isAuthenticated = ref(false);
 

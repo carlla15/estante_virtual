@@ -1,7 +1,8 @@
 <script setup>
 
 import { ref } from 'vue';
-import { auth, signInWithEmailAndPassword } from '@/assets/js/firebase';
+import { auth } from '@/assets/js/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 
 const loginData = ref({
@@ -18,8 +19,10 @@ const loginUser = async () => {
 
     const user = userCredential.user;
     console.log('Usuário logado:', user);
-
     alert('Login realizado com sucesso!');
+
+    loginData.value.email = ''
+    loginData.value.password = ''
   } catch (error) {
     console.error('Erro ao fazer login:', error.message);
     alert('Email ou senha incorretos!');
