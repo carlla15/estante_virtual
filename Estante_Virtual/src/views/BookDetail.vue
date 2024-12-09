@@ -6,69 +6,74 @@ import { auth } from '@/assets/js/firebase';
 import BaseLayout from '@/components/BaseLayout.vue';
 import DAOService from '@/services/DAOService';
 
+// DAOs
 const bookService = new DAOService('books');
-
 const userBookService = new DAOService('user_books');
 
 const route = useRoute();
 
 const defaultImage = "/img/bookImg.png";
 
-const fetchBookData = async (bookId) => {
-  bookData.value = await bookService.get(bookId);
-}
+const bookData = ref({});
+const isBookInShelf = ref(false); // Indica se o livro está na prateleira
 
-const bookData = ref({
-  title: '',
-  authors: [],
-  categories: [],
-  description: '',
-  page_count: '',
-  published_date: '',
-  publisher: '',
-  language: '',
-  image_link: '',
-});
+const fetchBookData = async (bookId) => {
+    bookData.value = await bookService.get(bookId);
+};
+
+const checkBookInShelf = async () => {
+  if (!auth.currentUser) return;
+
+    // Busca apenas os IDs dos livros do usuário
+    const userBookIds = (await userBookService.search('uid', auth.currentUser.uid)).map(entry => entry.book);
+    isBookInShelf.value = userBookIds.includes(route.params.id);
+};
 
 const addBookToShelf = async () => {
-  if (!auth.currentUser) {
-    alert('Você precisa estar logado para adicionar um livro à prateleira.');
+  if (!auth.currentUser) return;
+
+  try {
+    await userBookService.insert({
+      uid: auth.currentUser.uid,
+      book: route.params.id
+    });
+    isBookInShelf.value = true;
+  } catch (error) {
+    console.error("Erro ao adicionar o livro à prateleira:", error);
   }
+};
 
-  const bookEntry = {
-    uid: auth.currentUser.uid,
-    book: route.params.id
-  }
+const removeBookFromShelf = async () => {
+  if (!auth.currentUser) return;
+    const userBooksEntries = await userBookService.search('uid', auth.currentUser.uid);
+    const bookEntry = userBooksEntries.find(entry => entry.book === route.params.id);
 
-  const id = userBookService.insert(bookEntry);
-  alert('Livro adicionado')
-  console.log(id)
-}
+    if (bookEntry) {
+      await userBookService.delete(bookEntry.id);
+      isBookInShelf.value = false;
+    }
+};
 
-onMounted(() => {
-  window.scrollTo(0, 0);
+onMounted(async () => {
   const bookId = route.params.id;
-  fetchBookData(bookId);
+  await Promise.all([fetchBookData(bookId), checkBookInShelf()]);
 });
 </script>
-
 
 <template>
   <BaseLayout>
     <section class="row book-detail">
-
       <aside class="col-md-4">
-        <img :src="bookData.image_link && bookData.image_link !== 'N/A' ? bookData.image_link : defaultImage"
-          alt="Capa do livro" class="book-image" />
+        <img :src="bookData.image_link || defaultImage" alt="Capa do livro" class="book-image" />
         <div class="mt-4">
-          <button @click="addBookToShelf()" type="button" class="btn custom-btn">Adionar a prateleira</button>
+          <button @click="isBookInShelf ? removeBookFromShelf() : addBookToShelf()" type="button"
+            class="btn custom-btn">
+            {{ isBookInShelf ? 'Remover da Prateleira' : 'Adicionar à Prateleira' }}
+          </button>
         </div>
       </aside>
-
       <div class="col-md-8">
-        <div>
-          <h2>{{ bookData.title || 'Título não disponível' }}</h2>
-        </div>
+        <h2>{{ bookData.title || 'Título não disponível' }}</h2>
         <p><strong>Autor(es):</strong> {{ bookData.authors?.join(', ') || 'Não informado' }}</p>
         <p><strong>Categoria(s):</strong> {{ bookData.categories?.join(', ') || 'Não informado' }}</p>
         <p><strong>Descrição:</strong> {{ bookData.description || 'Descrição indisponível' }}</p>
@@ -77,44 +82,26 @@ onMounted(() => {
         <p><strong>Editora:</strong> {{ bookData.publisher || 'Não informado' }}</p>
         <p><strong>Idioma:</strong> {{ bookData.language || 'Não informado' }}</p>
       </div>
-
     </section>
   </BaseLayout>
 </template>
 
-
 <style scoped>
 .book-detail {
   margin: 50px;
+}
 
-  .custom-btn {
-    margin: 10px;
-    background-color: var(--color_1);
-    color: var(--color_white);
-  }
+.custom-btn {
+  margin: 10px;
+  background-color: var(--color_1);
+  color: var(--color_white);
+}
 
-  i {
-    margin: 10px;
-    font-size: 2em;
-    border-radius: 8px;
-    border: 1px solid red;
-  }
-
-  aside {
-    text-align: center;
-  }
-
-  p {
-    margin-bottom: 20px;
-  }
-
-  .book-image {
-    height: 500px;
-    width: 350px;
-    border-radius: 8px;
-    border: 2px solid red;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+.book-image {
+  height: 500px;
+  width: 350px;
+  border-radius: 8px;
+  border: 2px solid red;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 </style>
