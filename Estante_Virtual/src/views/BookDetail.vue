@@ -1,11 +1,17 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { auth } from '@/assets/js/firebase';
+
 import BaseLayout from '@/components/BaseLayout.vue';
 import DAOService from '@/services/DAOService';
 
 const bookService = new DAOService('books');
+
+const userBookService = new DAOService('user_books');
+
 const route = useRoute();
+
 const defaultImage = "/img/bookImg.png";
 
 const fetchBookData = async (bookId) => {
@@ -24,6 +30,21 @@ const bookData = ref({
   image_link: '',
 });
 
+const addBookToShelf = async () => {
+  if (!auth.currentUser) {
+    alert('Você precisa estar logado para adicionar um livro à prateleira.');
+  }
+
+  const bookEntry = {
+    uid: auth.currentUser.uid,
+    book: route.params.id
+  }
+
+  const id = userBookService.insert(bookEntry);
+  alert('Livro adicionado')
+  console.log(id)
+}
+
 onMounted(() => {
   window.scrollTo(0, 0);
   const bookId = route.params.id;
@@ -31,17 +52,23 @@ onMounted(() => {
 });
 </script>
 
+
 <template>
   <BaseLayout>
     <section class="row book-detail">
 
       <aside class="col-md-4">
-        <img :src="bookData.image_link && bookData.image_link !== 'N/A' ? bookData.image_link : defaultImage" 
-             alt="Capa do livro" class="book-image" />
+        <img :src="bookData.image_link && bookData.image_link !== 'N/A' ? bookData.image_link : defaultImage"
+          alt="Capa do livro" class="book-image" />
+        <div class="mt-4">
+          <button @click="addBookToShelf()" type="button" class="btn custom-btn">Adionar a prateleira</button>
+        </div>
       </aside>
 
       <div class="col-md-8">
-        <h2>{{ bookData.title || 'Título não disponível' }}</h2>
+        <div>
+          <h2>{{ bookData.title || 'Título não disponível' }}</h2>
+        </div>
         <p><strong>Autor(es):</strong> {{ bookData.authors?.join(', ') || 'Não informado' }}</p>
         <p><strong>Categoria(s):</strong> {{ bookData.categories?.join(', ') || 'Não informado' }}</p>
         <p><strong>Descrição:</strong> {{ bookData.description || 'Descrição indisponível' }}</p>
@@ -50,13 +77,28 @@ onMounted(() => {
         <p><strong>Editora:</strong> {{ bookData.publisher || 'Não informado' }}</p>
         <p><strong>Idioma:</strong> {{ bookData.language || 'Não informado' }}</p>
       </div>
+
     </section>
   </BaseLayout>
 </template>
 
+
 <style scoped>
 .book-detail {
   margin: 50px;
+
+  .custom-btn {
+    margin: 10px;
+    background-color: var(--color_1);
+    color: var(--color_white);
+  }
+
+  i {
+    margin: 10px;
+    font-size: 2em;
+    border-radius: 8px;
+    border: 1px solid red;
+  }
 
   aside {
     text-align: center;

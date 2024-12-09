@@ -1,3 +1,30 @@
+<script setup>
+import { ref, onMounted } from 'vue';
+import { db } from '@/assets/js/firebase';
+import { collection, getDocs } from 'firebase/firestore';
+
+import BaseLayout from '@/components/BaseLayout.vue';
+import BookCard from '@/components/BooksCards.vue';
+
+const highlightedBooks = ref([]);
+const otherBooks = ref([]);
+
+const fetchBooks = async () => {
+    try {
+        const querySnapshot = await getDocs(collection(db, "books"));
+        const books = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        highlightedBooks.value = books.filter((book) => book.isHighlighted);
+        otherBooks.value = books.filter((book) => !book.isHighlighted);
+
+    } catch (error) {
+        console.error("Erro ao buscar livros:", error);
+    }
+};
+
+onMounted(fetchBooks());
+</script>
+
+
 <template>
     <BaseLayout>
         <div class="container-bookcase">
@@ -18,29 +45,6 @@
     </BaseLayout>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue';
-import { db } from '@/assets/js/firebase';
-import { collection, getDocs } from 'firebase/firestore';
-import BaseLayout from '@/components/BaseLayout.vue';
-import BookCard from '@/components/BooksCards.vue';
-
-const highlightedBooks = ref([]);
-const otherBooks = ref([]);
-
-const fetchBooks = async () => {
-    try {
-        const querySnapshot = await getDocs(collection(db, "books"));
-        const books = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        highlightedBooks.value = books.filter((book) => book.isHighlighted);
-        otherBooks.value = books.filter((book) => !book.isHighlighted);
-    } catch (error) {
-        console.error("Erro ao buscar livros:", error);
-    }
-};
-
-onMounted(fetchBooks);
-</script>
 
 <style scoped>
 .container-bookcase {
@@ -56,7 +60,7 @@ onMounted(fetchBooks);
 }
 
 .section-title i {
-    margin-right: 10px; 
+    margin-right: 10px;
 }
 
 .book-grid {
