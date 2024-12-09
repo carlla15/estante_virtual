@@ -1,45 +1,41 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { db } from '@/assets/js/firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import DAOService from '@/services/DAOService';
+import { auth } from '@/assets/js/firebase';
 
 import BaseLayout from '@/components/BaseLayout.vue';
-import BookCard from '@/components/BooksCards.vue';
+import BooksCards from '@/components/BooksCards.vue';
 
-const highlightedBooks = ref([]);
-const otherBooks = ref([]);
+//DAOs
+const userBooksService = new DAOService('user_books');
+const bookService = new DAOService('books');
 
-const fetchBooks = async () => {
-    try {
-        const querySnapshot = await getDocs(collection(db, "books"));
-        const books = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-        highlightedBooks.value = books.filter((book) => book.isHighlighted);
-        otherBooks.value = books.filter((book) => !book.isHighlighted);
+const userBooks = ref([]);
 
-    } catch (error) {
-        console.error("Erro ao buscar livros:", error);
-    }
-};
+const fetchUserBooks = async () => {
+    const currentUser = auth.currentUser;
 
-onMounted(fetchBooks());
+    if (currentUser) {
+        const userBooksEntries = await userBooksService.search('uid', currentUser.uid);
+        // Extração dos IDs dos livros
+        const bookIds = userBooksEntries.map(entry => entry.book);
+        // Busca os detalhes de cada livro associado
+        userBooks.value = await Promise.all(bookIds.map(id => bookService.get(id)));
+    };
+}
+onMounted(fetchUserBooks);
 </script>
+
 
 
 <template>
     <BaseLayout>
         <div class="container-bookcase">
             <div class="section-title">
-                <h2> <i class="fa-solid fa-circle-check"></i> Livros Lidos</h2>
-            </div>
-            <section class="book-grid d-flex">
-                <BookCard :books="highlightedBooks" />
-            </section>
-
-            <div class="section-title">
                 <h2><i class="fa-solid fa-flag"></i> Livros na Estante</h2>
             </div>
             <section class="book-grid d-flex">
-                <BookCard :books="otherBooks" />
+                <BooksCards :books="userBooks" />
             </section>
         </div>
     </BaseLayout>
