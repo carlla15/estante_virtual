@@ -39,7 +39,6 @@ const checkBookInShelf = async () => {
 const addBookToShelf = async () => {
   if (!auth.currentUser) return;
 
-  // Adiciona o livro à prateleira com a avaliação
   await userBookService.insert({
     uid: auth.currentUser.uid,
     rating: userRating.value,
@@ -84,7 +83,6 @@ onMounted(async () => {
         <img :src="bookData.image_link || defaultImage" alt="Capa do livro" class="book-image" />
 
         <div class="mt-4 ">
-          <!-- Mostrar estrelas apenas se o livro estiver na prateleira -->
           <div v-if="isBookInShelf">
             <select v-model="userRating" @change="updateRating">
               <option v-for="rating in [0, 1, 2, 3, 4, 5]" :key="rating" :value="rating">{{ rating }}</option>
