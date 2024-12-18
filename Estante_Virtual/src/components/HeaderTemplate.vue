@@ -1,5 +1,23 @@
+<script setup>
+import { auth } from '@/assets/js/firebase';
+import { ref } from 'vue';
+import { onAuthStateChanged } from 'firebase/auth';
+
+const isAuthenticated = ref(false);
+
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        isAuthenticated.value = true;
+    } else {
+        isAuthenticated.value = false;
+    }
+});
+</script>
+
+
 <template>
-    <header>
+    <header v-show="!isAuthenticated">
         <h1>Gerencie seus livros !</h1>
         <p>
             A Prateleira Inteligente  é o melhor lugar para organizar, gerenciar e compartilhar suas leituras.
@@ -15,6 +33,7 @@
         </router-link>
     </header>
 </template>
+
 
 <style scoped>
 header {

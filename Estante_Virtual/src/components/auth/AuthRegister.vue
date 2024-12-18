@@ -4,7 +4,6 @@ import { auth } from '@/assets/js/firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 const newUser = ref({
-  username: '',
   email: '',
   password: '',
   repeatPassword: ''
@@ -48,11 +47,6 @@ const registerUser = async () => {
     </div>
 
     <h5 class="mb-3 pb-3">Crie sua conta</h5>
-
-    <div>
-      <input type="text" v-model="newUser.username" class="form-control form-control-lg" />
-      <label class="form-label">Seu nome de usuario</label>
-    </div>
 
     <div>
       <input type="email" v-model="newUser.email" class="form-control form-control-lg" />

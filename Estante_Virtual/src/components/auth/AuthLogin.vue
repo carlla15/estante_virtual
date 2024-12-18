@@ -1,5 +1,4 @@
 <script setup>
-
 import { ref } from 'vue';
 import { auth } from '@/assets/js/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
